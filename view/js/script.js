@@ -1,5 +1,5 @@
-const ttt = document.querySelector("#tictactoe");
 
+const ttt = document.querySelector("#tictactoe");
 
 //create square
 const square = (elem,sn) => {
@@ -27,29 +27,29 @@ const button = Object.values(buttons);
 
 const squares = Array(9).fill(null);
 
-let giliran = true
+let nextPlayer = true
 
 function winner(squares) {
 
-const lines = [
-	[0,1,2],
-	[3,4,5],
-	[6,7,8],
-	[0,3,6],
-	[1,4,7],
-	[2,5,8],
-	[0,4,8],
-	[2,4,6],
-]
+	const lines = [
+		[0,1,2],
+		[3,4,5],
+		[6,7,8],
+		[0,3,6],
+		[1,4,7],
+		[2,5,8],
+		[0,4,8],
+		[2,4,6],
+	]
 
-
-for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+	for (let i = 0; i < lines.length; i++) {
+		const [a, b, c] = lines[i];
+		if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
 			return ttt.innerHTML += `<h1>player ${squares[a]} win</h1>`;
-    }
-  }
-	return null;
+		}else if(squares.indexOf(null) === -1){
+			return ttt.innerHTML += `<h1>Draw</h1>`;
+		}
+	}
 }
 
 
@@ -57,15 +57,15 @@ for (let i = 0; i < lines.length; i++) {
 button.map((btn,i) => {
 	btn.addEventListener("click", () => {
 		if(squares[i] === null) {
-			if(squares[i] !== "X" && giliran === 1) {
+			if(squares[i] !== "X" && nextPlayer === 1) {
 				squares[i] = "X";
 				btn.innerHTML += `<h1>X</h1>`;
-				giliran = 2;
+				nextPlayer = 2;
 			  winner(squares)
 			}else{
 				squares[i] = "O";
 				btn.innerHTML += `<h1>O</h1>`;
-				giliran = 1;
+				nextPlayer = 1;
 				winner(squares)
 			}
 		}
