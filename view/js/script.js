@@ -29,7 +29,10 @@ const squares = Array(9).fill(null);
 
 let nextPlayer = true
 
+
 function winner(squares) {
+
+	let result = ""
 
 	const lines = [
 		[0,1,2],
@@ -45,13 +48,14 @@ function winner(squares) {
 	for (let i = 0; i < lines.length; i++) {
 		const [a, b, c] = lines[i];
 		if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-			return ttt.innerHTML += `<h1>player ${squares[a]} win</h1>`;
-		}else if(squares.indexOf(null) === -1){
-			return ttt.innerHTML += `<h1>Draw</h1>`;
+			result = ttt.innerHTML += `<h1>player ${squares[a]} win</h1>`;
+			return result
 		}
+		console.log(result)
 	}
+   return result === "" && squares.indexOf(null) === -1 ? 
+		ttt.innerHTML += `<h1>Draw</h1>` :  null
 }
-
 
 
 button.map((btn,i) => {
