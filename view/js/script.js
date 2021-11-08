@@ -46,7 +46,7 @@ const lines = [
 for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-			ttt.innerHTML += `<h1>player ${squares[a]} win</h1>`;
+			return ttt.innerHTML += `<h1>player ${squares[a]} win</h1>`;
     }
   }
 	return null;
