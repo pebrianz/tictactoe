@@ -6,4 +6,13 @@
 
 .flex {
 	display: flex;
+	justify-content: center;
+	align-self: center;
 }
+
+#tictactoe {
+	padding-top: 50%;
+	text-align: center;
+}
+
+
