@@ -51,7 +51,6 @@ function winner(squares) {
 			result = ttt.innerHTML += `<h1>player ${squares[a]} win</h1>`;
 			return result
 		}
-		console.log(result)
 	}
    return result === "" && squares.indexOf(null) === -1 ? 
 		ttt.innerHTML += `<h1>Draw</h1>` :  null
