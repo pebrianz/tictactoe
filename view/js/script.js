@@ -32,8 +32,6 @@ let nextPlayer = true
 
 function winner(squares) {
 
-	let result = ""
-
 	const lines = [
 		[0,1,2],
 		[3,4,5],
@@ -48,12 +46,11 @@ function winner(squares) {
 	for (let i = 0; i < lines.length; i++) {
 		const [a, b, c] = lines[i];
 		if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-			result = ttt.innerHTML += `<h1>player ${squares[a]} win</h1>`;
-			return result
+
+			return ttt.innerHTML += `<h1>Player ${squares[a]} win</h1>`;
 		}
 	}
-   return result === "" && squares.indexOf(null) === -1 ? 
-		ttt.innerHTML += `<h1>Draw</h1>` :  null
+   return squares.indexOf(null) === -1 ? ttt.innerHTML += `<h1>Draw</h1>` :  null
 }
 
 
@@ -64,7 +61,7 @@ button.map((btn,i) => {
 				squares[i] = "X";
 				btn.innerHTML += `<h1>X</h1>`;
 				nextPlayer = 2;
-			  winner(squares)
+				winner(squares)
 			}else{
 				squares[i] = "O";
 				btn.innerHTML += `<h1>O</h1>`;

@@ -1,18 +1,20 @@
+#tictactoe {
+	padding-top: 50%;
+	text-align: center;
+}
+
 .square {
 	border: 1px solid;
 	width: 64px;
 	height: 64px;
+	box-shadow: 2px 5px 5px gray;
+
 }
 
 .flex {
 	display: flex;
 	justify-content: center;
 	align-self: center;
-}
-
-#tictactoe {
-	padding-top: 50%;
-	text-align: center;
 }
 
 
