@@ -1,6 +1,7 @@
 #tictactoe {
 	padding-top: 50%;
 	text-align: center;
+	font-family: 'Libre Franklin', sans-serif;
 }
 
 .square {
@@ -8,7 +9,6 @@
 	width: 64px;
 	height: 64px;
 	box-shadow: 2px 5px 5px gray;
-
 }
 
 .flex {

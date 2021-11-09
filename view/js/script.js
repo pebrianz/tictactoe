@@ -29,6 +29,17 @@ const squares = Array(9).fill(null);
 
 let nextPlayer = true
 
+function changeBg(...index) {
+	console.log(index)
+	function color(color) {
+		index.map(i => {
+			console.log(i)
+			button[i].style.backgroundColor = color;
+		})
+	}
+	return color;
+}
+
 
 function winner(squares) {
 
@@ -46,23 +57,23 @@ function winner(squares) {
 	for (let i = 0; i < lines.length; i++) {
 		const [a, b, c] = lines[i];
 		if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-
+			squares[a] === "X" ? changeBg(a,b,c)("red") : changeBg(a,b,c)("green");
 			return ttt.innerHTML += `<h1>Player ${squares[a]} win</h1>`;
 		}
 	}
-   return squares.indexOf(null) === -1 ? ttt.innerHTML += `<h1>Draw</h1>` :  null
+	return squares.indexOf(null) !== -1 ? null : ttt.innerHTML += `<h1>Draw</h1>`;
 }
 
 
 button.map((btn,i) => {
 	btn.addEventListener("click", () => {
-		if(squares[i] === null) {
-			if(squares[i] !== "X" && nextPlayer === 1) {
+		if (squares[i] === null) {
+			if (squares[i] !== "X" && nextPlayer === 1) {
 				squares[i] = "X";
 				btn.innerHTML += `<h1>X</h1>`;
 				nextPlayer = 2;
 				winner(squares)
-			}else{
+			} else {
 				squares[i] = "O";
 				btn.innerHTML += `<h1>O</h1>`;
 				nextPlayer = 1;
